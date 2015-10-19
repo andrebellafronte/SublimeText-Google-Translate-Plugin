@@ -64,6 +64,7 @@ class GoogleTranslate(object):
         self.proxytp = proxy_type
         self.proxyho = proxy_host
         self.proxypo = proxy_port
+        self.apikey  = api_key
 
     @property
     def langs(self, cache=True):
