@@ -1,6 +1,7 @@
 {
 	"source_language": "",// Auto detect if leave blank
-    "target_language": "en",// Must be specified	
+    "target_language": "en",// Must be specified
+    "api_key": "",//insert your API Key. For more information https://cloud.google.com/translate/	
     "target_type": "html",	// or plain or html
     "proxy_enable": "no",	// enable or disable proxy
     "proxy_type": "socks5",	// socks4 or socks5 or http

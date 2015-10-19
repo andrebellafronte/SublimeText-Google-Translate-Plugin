@@ -15,7 +15,7 @@ settings = sublime.load_settings("goTranslate.sublime-settings")
 
 class GoTranslateCommand(sublime_plugin.TextCommand):
     
-    def run(self, edit, proxy_enable = settings.get("proxy_enable"), proxy_type = settings.get("proxy_type"), proxy_host = settings.get("proxy_host"), proxy_port = settings.get("proxy_port"), source_language = settings.get("source_language"), target_language = settings.get("target_language")):
+    def run(self, edit, proxy_enable = settings.get("proxy_enable"), api_key = settings.get("api_key"), proxy_type = settings.get("proxy_type"), proxy_host = settings.get("proxy_host"), proxy_port = settings.get("proxy_port"), source_language = settings.get("source_language"), target_language = settings.get("target_language")):
         if not source_language:
             source_language = settings.get("source_language")
         if not target_language:
@@ -26,6 +26,8 @@ class GoTranslateCommand(sublime_plugin.TextCommand):
             proxy_type = settings.get("proxy_type")
         if not proxy_host:
             proxy_host = settings.get("proxy_host")
+        if not api_key:
+            api_key = settings.get("api_key")
         if not proxy_port:
             proxy_port = settings.get("proxy_port")
         target_type = settings.get("target_type")
@@ -35,7 +37,7 @@ class GoTranslateCommand(sublime_plugin.TextCommand):
 
                 v = self.view
                 selection = v.substr(region).encode('utf-8')
-                translate = GoogleTranslate(proxy_enable, proxy_type, proxy_host, proxy_port, source_language, target_language)
+                translate = GoogleTranslate(proxy_enable, api_key, proxy_type, proxy_host, proxy_port, source_language, target_language)
 
                 if not target_language:
                     self.view.run_command("go_translate_to")
@@ -62,6 +64,7 @@ class GoTranslateInfoCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings("goTranslate.sublime-settings")
         source_language = settings.get("source_language")
         target_language = settings.get("target_language")
+        api_key = settings.get("api_key")
         proxy_enable = settings.get("proxy_enable")
         proxy_type = settings.get("proxy_type")
         proxy_host = settings.get("proxy_host")
@@ -70,7 +73,7 @@ class GoTranslateInfoCommand(sublime_plugin.TextCommand):
         v = self.view
         selection = v.substr(v.sel()[0])
 
-        translate = GoogleTranslate(proxy_enable, proxy_type, proxy_host, proxy_port, source_language, target_language)
+        translate = GoogleTranslate(proxy_enable, api_key, proxy_type, proxy_host, proxy_port, source_language, target_language)
 
         text = (json.dumps(translate.langs, ensure_ascii = False, indent = 2))
 
@@ -81,6 +84,7 @@ class GoTranslateToCommand(sublime_plugin.TextCommand):
         settings = sublime.load_settings("goTranslate.sublime-settings")
         source_language = settings.get("source_language")
         target_language = settings.get("target_language")
+        api_key = settings.get("api_key")
         proxy_enable = settings.get("proxy_enable")
         proxy_type = settings.get("proxy_type")
         proxy_host = settings.get("proxy_host")
@@ -89,7 +93,7 @@ class GoTranslateToCommand(sublime_plugin.TextCommand):
         v = self.view
         selection = v.substr(v.sel()[0])
 
-        translate = GoogleTranslate(proxy_enable, proxy_type, proxy_host, proxy_port, source_language, target_language)
+        translate = GoogleTranslate(proxy_enable, api_key, proxy_type, proxy_host, proxy_port, source_language, target_language)
 
         text = (json.dumps(translate.langs['langs'], ensure_ascii = False))
         continents = json.loads(text)

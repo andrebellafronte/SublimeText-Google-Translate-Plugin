@@ -44,12 +44,12 @@ class GoogleTranslate(object):
         504: "ERR_PROXY_NOT_SPECIFIED",
     }
 
-    def __init__(self, proxy_enable, proxy_type, proxy_host, proxy_port, source_lang, target_lang):
+    def __init__(self, proxy_enable, api_key, proxy_type, proxy_host, proxy_port, source_lang, target_lang):
         self.cache = {
             'languages': None,
         }
         self.api_urls = {
-            'translate': 'https://translate.google.com/translate_a/single?client=t&ie=UTF-8&oe=UTF-8&dt=t',
+            'translate': 'https://translate.google.com/translate_a/single?client=t&ie=UTF-8&oe=UTF-8&dt=t'+api_key,
         }
         if not source_lang:
             source_lang = 'auto'
