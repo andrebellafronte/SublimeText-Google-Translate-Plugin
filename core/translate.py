@@ -2,7 +2,7 @@
 # coding:utf-8
 # https://github.com/MTimer/SublimeText-Google-Translate-Plugin
 
-__version__ = "2.1.2"
+__version__ = "2.1.3"
 
 import sublime
 try:
@@ -49,7 +49,7 @@ class GoogleTranslate(object):
             'languages': None,
         }
         self.api_urls = {
-             'translate': 'https://www.googleapis.com/language/translate/v2?key='+api_key+'&target='+target_lang,
+             'translate': 'https://www.googleapis.com/language/translate/v2',
         }
         if not source_lang:
             source_lang = 'auto'
@@ -106,13 +106,13 @@ class GoogleTranslate(object):
                     opener = build_opener(SocksiPyHandler(PROXY_TYPE_SOCKS4, self.proxyho, int(self.proxypo)))
                 else:
                     opener = build_opener(SocksiPyHandler(PROXY_TYPE_HTTP, self.proxyho, int(self.proxypo)))
-            req = Request(self.api_urls['translate']+"&sl=%s&tl=%s&text=%s" % (self.source, self.target, escaped_source), headers = headers)
+            req = Request(self.api_urls['translate']+"&key=%s&source=%s&target=%s&text=%s" % (self.apikey, self.source, self.target, escaped_source), headers = headers)
             result = opener.open(req, timeout = 2).read()
             json = result
 
         else:
             try:
-                req = Request(self.api_urls['translate']+"&sl=%s&tl=%s&text=%s" % (self.source, self.target, escaped_source), headers = headers)
+                req = Request(self.api_urls['translate']+"&key=%s&source=%s&target=%s&text=%s" % (self.apikey, self.source, self.target, escaped_source), headers = headers)
                 result = urlopen(req, timeout = 2).read()
                 json = result
             except IOError:
