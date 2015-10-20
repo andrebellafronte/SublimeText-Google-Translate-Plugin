@@ -2,7 +2,7 @@
 # coding:utf-8
 # https://github.com/MTimer/SublimeText-Google-Translate-Plugin
 
-__version__ = "2.1.1"
+__version__ = "2.1.2"
 
 import sublime
 try:
@@ -49,7 +49,7 @@ class GoogleTranslate(object):
             'languages': None,
         }
         self.api_urls = {
-             'translate': 'https://www.googleapis.com/language/translate/v2',
+             'translate': 'https://www.googleapis.com/language/translate/v2?key='+api_key+'&target='+target_lang,
         }
         if not source_lang:
             source_lang = 'auto'
