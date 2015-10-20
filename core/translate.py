@@ -2,7 +2,7 @@
 # coding:utf-8
 # https://github.com/MTimer/SublimeText-Google-Translate-Plugin
 
-__version__ = "2.1.0"
+__version__ = "2.1.1"
 
 import sublime
 try:
