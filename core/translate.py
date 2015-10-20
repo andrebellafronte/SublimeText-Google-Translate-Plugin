@@ -49,7 +49,7 @@ class GoogleTranslate(object):
             'languages': None,
         }
         self.api_urls = {
-             'translate': 'https://www.googleapis.com/language/translate/v2?key='+api_key,
+             'translate': 'https://www.googleapis.com/language/translate/v2',
         }
         if not source_lang:
             source_lang = 'auto'
