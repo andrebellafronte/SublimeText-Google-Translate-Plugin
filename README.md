@@ -17,7 +17,7 @@ Install:
 
 **With Git:** Clone the repository in your Sublime Text "Packages" directory:
 
-    git clone https://github.com/MTimer/SublimeText-Google-Translate-Plugin 'Inline Google Translate'
+    git clone https://github.com/andrebellafronte/SublimeText-Google-Translate-Plugin 'Inline Google Translate'
 
 Folder name must be **Inline Google Translate** !!
 
@@ -38,21 +38,22 @@ The "Packages" directory is located at:
         ST2: %APPDATA%/Sublime Text 2/Packages/
         ST3: %APPDATA%/Sublime Text 3/Packages/
 
-Configure:
+Configuração:
 =========
 
 Set Target Language AND Source Language [default is auto detect] in user settings:
 
 
-    {     
-        "source_language": "", // eg. en, default is 'auto detect'
-        "target_language": "", // default is en
-        "target_type": "html",  // or plain or html
-        "proxy_enable": "yes",  // enable or disable proxy
-        "proxy_type": "socks5", // socks4 or socks5 or http
-        "proxy_host": "127.0.0.1",  // eg. 127.0.0.1
-        "proxy_port": "9050"    // eg. 9050
-    }
+    {
+    "source_language": "",// Auto detect if leave blank
+    "target_language": "en",// Must be specified
+    "api_key": "",//insert your API Key. For more information https://cloud.google.com/translate/   
+    "target_type": "html",  // or plain or html
+    "proxy_enable": "no",   // enable or disable proxy
+    "proxy_type": "socks5", // socks4 or socks5 or http
+    "proxy_host": "127.0.0.1",  // eg. 127.0.0.1
+    "proxy_port": "9050"    // eg. 9050
+}
 
 
 Usage:
