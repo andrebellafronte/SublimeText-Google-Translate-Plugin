@@ -2,7 +2,7 @@ Sublime Text Google Translate Plugin
 ===============================
 
 
-**Version:** 2.1.0
+**Version:** 2.1.6
 
 
 Thank you!
@@ -19,6 +19,7 @@ Set Target Language AND Source Language [default is auto detect] in user setting
         "source_language": "", // eg. en, default is 'auto detect'
         "target_language": "", // default is en
         "target_type": "html",  // or plain or html
+        "api_key": "2344556788" //api
         "proxy_enable": "yes",  // enable or disable proxy
         "proxy_type": "socks5", // socks4 or socks5 or http
         "proxy_host": "127.0.0.1",  // eg. 127.0.0.1
